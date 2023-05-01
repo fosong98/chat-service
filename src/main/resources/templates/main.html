@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>main</title>
+    <style>table {
+        width: 100%;
+    }
+    th {
+        width: 30%;
+    }
+    td {
+        width: 30%;
+        text-align: center;
+    }</style>
+</head>
+<body>
+    <h1 id="url"></h1>
+    <form action="/" method="post">
+        <label>to<input type="text" id="toUrl" name="toUrl"></label>
+        <label>content<input type="text" id="content" name="content"></label>
+        <input type="submit">
+    </form>
+    <table>
+        <thead>
+            <th>from</th><th>to</th><th>content</th>
+        </thead>
+        <tbody>
+            <tr th:each="message: ${messages}">
+                <td th:text="${message.fromURL}">fromUrl</td>
+                <td th:text="${message.toURL}">toUrl</td>
+                <td th:text="${message.content}">content</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    document.getElementById("url").innerText = location.toString();
+</script>
+</html>
